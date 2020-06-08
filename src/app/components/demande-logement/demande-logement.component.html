@@ -1,0 +1,616 @@
+<div class="top-picture"></div>
+
+<mat-card class="main-content">
+  <mat-card-title>
+    Demande de logement
+  </mat-card-title>
+
+  <mat-card-content>
+    <mat-vertical-stepper #stepper>
+
+      <mat-step [stepControl]="identityForm">
+        <mat-card class="step-card">
+
+
+          <form [formGroup]="identityForm">
+            <ng-template matStepLabel>Informations personnelles</ng-template>
+
+            <div class="form-content">
+              <!-- NOM -->
+              <mat-form-field class="full-width-input" appearance="outline">
+                <mat-label>Nom</mat-label>
+                <input matInput placeholder="Nom" formControlName="lastName" required>
+                <mat-error>
+                  Please provide a valid last name
+                </mat-error>
+              </mat-form-field>
+              <!-- PRENOM -->
+              <mat-form-field class="full-width-input" appearance="outline">
+                <mat-label>Prénom</mat-label>
+                <input matInput placeholder="Prénom" formControlName="firstName" required>
+                <mat-error>
+                  Please provide a valid first name
+                </mat-error>
+              </mat-form-field>
+              <!-- CIVILITE -->
+              <mat-form-field appearance="outline" class="full-width-input">
+                <mat-label>Civilité</mat-label>
+                <mat-select formControlName="civility" required>
+                  <mat-option *ngFor="let civility of civilities" [value]="civility">
+                    {{civility}}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+              <!-- DATE DE NAISSANCE -->
+              <mat-form-field appearance="outline" class="full-width-input">
+                <mat-label>Date de naissance</mat-label>
+                <input matInput [matDatepicker]="picker" formControlName="birthDate">
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+              </mat-form-field>
+              <!-- PROMOTION -->
+              <mat-form-field appearance="outline" class="full-width-input">
+                <mat-label>Promotion</mat-label>
+                <mat-select formControlName="promotion" required>
+                  <mat-option *ngFor="let promotion of promotions" [value]="promotion">
+                    {{promotion}}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+              <!-- NATIONALITE -->
+              <mat-form-field class="full-width-input" appearance="outline">
+                <mat-label>Nationalité</mat-label>
+                <input matInput placeholder="Nationalité" formControlName="nationality" required>
+                <mat-error>
+                  Please provide a valid last name
+                </mat-error>
+              </mat-form-field>
+              <!-- EMAIL -->
+              <mat-form-field class="full-width-input" appearance="outline">
+                <mat-label>Email</mat-label>
+                <input matInput placeholder="Email" formControlName="email" required>
+                <mat-error>
+                  Please provide a valid last name
+                </mat-error>
+              </mat-form-field>
+              <!-- TELEPHONE -->
+              <mat-form-field class="full-width-input" appearance="outline">
+                <mat-label>Téléphone</mat-label>
+                <input matInput placeholder="Téléphone portable" formControlName="phone" required>
+                <mat-error>
+                  Please provide a valid last name
+                </mat-error>
+              </mat-form-field>
+              <!-- CARTE IDENTITE -->
+              <div class="upload-file">
+                <div class="file-wrapper">
+                  <mat-form-field class="full-width-input"  appearance="outline">
+                    <mat-label>Carte d'identité (choisir un fichier)</mat-label>
+                    <input matInput disabled placeholder="Carte d'identité" required>
+                  </mat-form-field>
+                </div>
+                <div class="file-field input-field">
+                  <button mat-raised-button color="primary" class="file-upload">
+                    <span>BROWSE</span>
+                    <input type="file" name="FileAttachment" id="FileAttachment" class="upload file-input"/>
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div class="stepper-buttons">
+              <button mat-raised-button color="primary" matStepperPrevious>Précédent</button>
+              <button mat-raised-button color="primary" matStepperNext>Suivant</button>
+            </div>
+          </form>
+        </mat-card>
+      </mat-step>
+
+      <mat-step [stepControl]="parentsInformations">
+        <mat-card class="step-card">
+
+
+          <form [formGroup]="parentsInformations">
+            <ng-template matStepLabel>Coordonnées des parents</ng-template>
+
+            <mat-form-field class="full-width-input">
+              <input matInput placeholder="Addresse" formControlName="address" required>
+              <mat-error>
+                Please provide a valid first name
+              </mat-error>
+            </mat-form-field>
+
+            <mat-form-field class="full-width-input">
+              <input matInput placeholder="Ville" formControlName="city" required>
+              <mat-error>
+                Please provide a valid first name
+              </mat-error>
+            </mat-form-field>
+
+            <mat-form-field class="full-width-input">
+              <input matInput placeholder="Code postal" formControlName="postCode" required>
+              <mat-error>
+                Please provide a valid last name
+              </mat-error>
+            </mat-form-field>
+
+            <mat-form-field class="full-width-input">
+              <input matInput placeholder="Téléphone (domicile)" formControlName="housePhone" required>
+              <mat-error>
+                Please provide a valid first name
+              </mat-error>
+            </mat-form-field>
+
+            <mat-form-field class="full-width-input">
+              <input matInput placeholder="Téléphone portable (mère)" formControlName="motherPhone" required>
+              <mat-error>
+                Please provide a valid first name
+              </mat-error>
+            </mat-form-field>
+
+            <mat-form-field class="full-width-input">
+              <input matInput placeholder="Téléphone portable (père)" formControlName="patherPhone" required>
+              <mat-error>
+                Please provide a valid first name
+              </mat-error>
+            </mat-form-field>
+
+            <mat-form-field class="full-width-input">
+              <input matInput placeholder="Téléphone professionnel (mère)" formControlName="motherProfessionnalPhone"
+                     required>
+              <mat-error>
+                Please provide a valid first name
+              </mat-error>
+            </mat-form-field>
+
+            <mat-form-field class="full-width-input">
+              <input matInput placeholder="Téléphone professionnel (père)" formControlName="patherProfessionnalPhone"
+                     required>
+              <mat-error>
+                Please provide a valid first name
+              </mat-error>
+            </mat-form-field>
+
+            <mat-form-field class="full-width-input">
+              <input matInput placeholder="Email" formControlName="email" required>
+              <mat-error>
+                Please provide a valid last name
+              </mat-error>
+            </mat-form-field>
+
+            <div>
+              <button mat-button matStepperNext>Suivant</button>
+            </div>
+          </form>
+        </mat-card>
+      </mat-step>
+
+      <mat-step [stepControl]="accident">
+        <mat-card class="step-card">
+
+
+          <form [formGroup]="accident">
+            <ng-template matStepLabel>Personne a contacter en cas d'accident</ng-template>
+
+            <mat-form-field class="full-width-input">
+              <input matInput placeholder="Prénom" formControlName="firstName" required>
+              <mat-error>
+                Please provide a valid first name
+              </mat-error>
+            </mat-form-field>
+
+            <mat-form-field class="full-width-input">
+              <input matInput placeholder="Nom" formControlName="lastName" required>
+              <mat-error>
+                Please provide a valid first name
+              </mat-error>
+            </mat-form-field>
+
+            <mat-form-field class="full-width-input">
+              <input matInput placeholder="Téléphone" formControlName="phone" required>
+              <mat-error>
+                Please provide a valid last name
+              </mat-error>
+            </mat-form-field>
+
+            <div>
+              <button mat-button matStepperNext>Suivant</button>
+            </div>
+          </form>
+        </mat-card>
+      </mat-step>
+
+      <mat-step [stepControl]="accomodationType">
+        <mat-card class="step-card">
+          <form [formGroup]="accomodationType">
+            <ng-template matStepLabel>Type de logement souhaité</ng-template>
+
+            <p>Si le logement souhaité n'est pas disponible une proposition vous sera faite pour un logement d'un type
+              différent.</p>
+
+            <mat-form-field>
+              <mat-label>Type de logement</mat-label>
+              <mat-select formControlName="accomodationType" required>
+                <mat-option *ngFor="let type of accomodationTypes" [value]="type">
+                  {{type}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+
+            <button mat-button matStepperPrevious>Précédent</button>
+            <button mat-button matStepperNext>Suivant</button>
+
+          </form>
+        </mat-card>
+      </mat-step>
+
+      <mat-step [stepControl]="vehicle" hasError errorMessage="test error s">
+        <mat-card class="step-card">
+
+          <form [formGroup]="vehicle">
+            <ng-template matStepLabel>Véhicule</ng-template>
+
+            <mat-form-field class="full-width-input">
+              <input matInput placeholder="Type" formControlName="type" required>
+              <mat-error>
+                Please provide a valid first name
+              </mat-error>
+            </mat-form-field>
+
+            <mat-form-field class="full-width-input">
+              <input matInput placeholder="Marque" formControlName="brand" required>
+              <mat-error>
+                Please provide a valid first name
+              </mat-error>
+            </mat-form-field>
+
+            <mat-form-field class="full-width-input">
+              <input matInput placeholder="Immatriculation" formControlName="immatriculation" required>
+              <mat-error>
+                Please provide a valid last name
+              </mat-error>
+            </mat-form-field>
+
+
+            <mat-form-field class="full-width-input">
+              <input matInput placeholder="Couleur" formControlName="color" required>
+              <mat-error>
+                Please provide a valid last name
+              </mat-error>
+            </mat-form-field>
+
+            <mat-form-field class="full-width-input">
+              <input matInput placeholder="Compagnie d'assurance" formControlName="insuranceCompany" required>
+              <mat-error>
+                Please provide a valid last name
+              </mat-error>
+            </mat-form-field>
+
+
+            <mat-form-field class="full-width-input">
+              <input matInput placeholder="N° Police" formControlName="policeNumber" required>
+              <mat-error>
+                Please provide a valid last name
+              </mat-error>
+            </mat-form-field>
+            <div>
+              <button mat-button matStepperNext>Suivant</button>
+            </div>
+          </form>
+        </mat-card>
+      </mat-step>
+
+      <mat-step>
+        <mat-card class="step-card">
+          <ng-template matStepLabel>Documents</ng-template>
+
+          <div>
+            <button mat-button matStepperNext>Suivant</button>
+          </div>
+        </mat-card>
+      </mat-step>
+
+      <mat-step>
+        <mat-card class="step-card">
+          <ng-template matStepLabel>Envoi</ng-template>
+          <p>You are now done.</p>
+          <div>
+            <button mat-button matStepperPrevious>Back</button>
+            <button mat-button (click)="stepper.reset()">Reset</button>
+          </div>
+        </mat-card>
+      </mat-step>
+    </mat-vertical-stepper>
+
+
+  </mat-card-content>
+
+
+  <!-- <mat-card-content>
+     <mat-accordion>
+       <mat-expansion-panel
+                            [expanded]="accordionStatus.identityForm">
+         <mat-expansion-panel-header>
+           <mat-panel-title>
+             <h1>Informations personnelles</h1>
+           </mat-panel-title>
+         </mat-expansion-panel-header>
+
+         <mat-card class="step-card">
+           <form [formGroup]="identityForm" (ngSubmit)="onIdentityFormSubmit()">
+             <ng-template>Informations personnelles</ng-template>
+
+             <mat-form-field>
+               <mat-label>Civilité</mat-label>
+               <mat-select formControlName="civility" required>
+                 <mat-option *ngFor="let civility of civilities" [value]="civility">
+                   {{civility}}
+                 </mat-option>
+               </mat-select>
+             </mat-form-field>
+
+             <mat-form-field class="full-width-input">
+               <input matInput placeholder="Prénom" formControlName="firstName" required>
+               <mat-error>
+                 Please provide a valid first name
+               </mat-error>
+             </mat-form-field>
+
+             <mat-form-field class="full-width-input">
+               <input matInput placeholder="Nom" formControlName="lastName" required>
+               <mat-error>
+                 Please provide a valid last name
+               </mat-error>
+             </mat-form-field>
+
+             <mat-form-field>
+               <mat-label>Date de naissance</mat-label>
+               <input matInput [matDatepicker]="picker" formControlName="birthDate">
+               <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+               <mat-datepicker #picker></mat-datepicker>
+             </mat-form-field>
+
+             <mat-form-field class="full-width-input">
+               <input matInput placeholder="Nationalité" formControlName="nationality" required>
+               <mat-error>
+                 Please provide a valid last name
+               </mat-error>
+             </mat-form-field>
+
+             <mat-form-field class="full-width-input">
+               <input matInput placeholder="Email" formControlName="email" required>
+               <mat-error>
+                 Please provide a valid last name
+               </mat-error>
+             </mat-form-field>
+
+             <mat-form-field class="full-width-input">
+               <input matInput placeholder="Téléphone portable" formControlName="phone" required>
+               <mat-error>
+                 Please provide a valid last name
+               </mat-error>
+             </mat-form-field>
+
+             <button mat-raised-button color="primary">Suivant</button>
+
+           </form>
+         </mat-card>
+       </mat-expansion-panel>
+     </mat-accordion>
+
+     <mat-accordion>
+       <mat-expansion-panel
+                            [expanded]="accordionStatus.parentsInformation">
+         <mat-expansion-panel-header>
+           <mat-panel-title>
+             <h1>Coordonnées des parents</h1>
+           </mat-panel-title>
+         </mat-expansion-panel-header>
+
+         <mat-card class="step-card">
+           <form [formGroup]="parentsInformations">
+             <mat-form-field class="full-width-input">
+               <input matInput placeholder="Addresse" formControlName="address" required>
+               <mat-error>
+                 Please provide a valid first name
+               </mat-error>
+             </mat-form-field>
+
+             <mat-form-field class="full-width-input">
+               <input matInput placeholder="Ville" formControlName="city" required>
+               <mat-error>
+                 Please provide a valid first name
+               </mat-error>
+             </mat-form-field>
+
+             <mat-form-field class="full-width-input">
+               <input matInput placeholder="Code postal" formControlName="postCode" required>
+               <mat-error>
+                 Please provide a valid last name
+               </mat-error>
+             </mat-form-field>
+
+             <mat-form-field class="full-width-input">
+               <input matInput placeholder="Téléphone (domicile)" formControlName="housePhone" required>
+               <mat-error>
+                 Please provide a valid first name
+               </mat-error>
+             </mat-form-field>
+
+             <mat-form-field class="full-width-input">
+               <input matInput placeholder="Téléphone portable (mère)" formControlName="motherPhone" required>
+               <mat-error>
+                 Please provide a valid first name
+               </mat-error>
+             </mat-form-field>
+
+             <mat-form-field class="full-width-input">
+               <input matInput placeholder="Téléphone portable (père)" formControlName="patherPhone" required>
+               <mat-error>
+                 Please provide a valid first name
+               </mat-error>
+             </mat-form-field>
+
+             <mat-form-field class="full-width-input">
+               <input matInput placeholder="Téléphone professionnel (mère)" formControlName="motherProfessionnalPhone"
+                      required>
+               <mat-error>
+                 Please provide a valid first name
+               </mat-error>
+             </mat-form-field>
+
+             <mat-form-field class="full-width-input">
+               <input matInput placeholder="Téléphone professionnel (père)" formControlName="patherProfessionnalPhone"
+                      required>
+               <mat-error>
+                 Please provide a valid first name
+               </mat-error>
+             </mat-form-field>
+
+             <mat-form-field class="full-width-input">
+               <input matInput placeholder="Email" formControlName="email" required>
+               <mat-error>
+                 Please provide a valid last name
+               </mat-error>
+             </mat-form-field>
+           </form>
+         </mat-card>
+       </mat-expansion-panel>
+     </mat-accordion>
+     <mat-accordion>
+       <mat-expansion-panel>
+         <mat-expansion-panel-header>
+           <mat-panel-title>
+             <h1>Personne a contacter en cas d'accident</h1>
+           </mat-panel-title>
+         </mat-expansion-panel-header>
+         <mat-card class="step-card">
+
+           <form [formGroup]="accident">
+             <mat-form-field class="full-width-input">
+               <input matInput placeholder="Prénom" formControlName="firstName" required>
+               <mat-error>
+                 Please provide a valid first name
+               </mat-error>
+             </mat-form-field>
+
+             <mat-form-field class="full-width-input">
+               <input matInput placeholder="Nom" formControlName="lastName" required>
+               <mat-error>
+                 Please provide a valid first name
+               </mat-error>
+             </mat-form-field>
+
+             <mat-form-field class="full-width-input">
+               <input matInput placeholder="Téléphone" formControlName="phone" required>
+               <mat-error>
+                 Please provide a valid last name
+               </mat-error>
+             </mat-form-field>
+           </form>
+         </mat-card>
+       </mat-expansion-panel>
+     </mat-accordion>
+     <mat-accordion>
+       <mat-expansion-panel>
+         <mat-expansion-panel-header>
+           <mat-panel-title>
+             <h1>Type de logement souhaité</h1>
+           </mat-panel-title>
+         </mat-expansion-panel-header>
+
+         <mat-card class="step-card">
+           <form [formGroup]="accomodationType">
+             <ng-template></ng-template>
+
+             <p>Si le logement souhaité n'est pas disponible une proposition vous sera faite pour un logement d'un type
+               différent.</p>
+
+             <mat-form-field>
+               <mat-label>Type de logement</mat-label>
+               <mat-select formControlName="accomodationType" required>
+                 <mat-option *ngFor="let type of accomodationTypes" [value]="type">
+                   {{type}}
+                 </mat-option>
+               </mat-select>
+             </mat-form-field>
+           </form>
+         </mat-card>
+       </mat-expansion-panel>
+     </mat-accordion>
+
+     <mat-accordion>
+       <mat-expansion-panel>
+         <mat-expansion-panel-header>
+           <mat-panel-title>
+             <h1>Véhicule</h1>
+           </mat-panel-title>
+         </mat-expansion-panel-header>
+         <mat-card class="step-card">
+
+           <form [formGroup]="vehicle">
+
+             <mat-form-field class="full-width-input">
+               <input matInput placeholder="Type" formControlName="type" required>
+               <mat-error>
+                 Please provide a valid first name
+               </mat-error>
+             </mat-form-field>
+
+             <mat-form-field class="full-width-input">
+               <input matInput placeholder="Marque" formControlName="brand" required>
+               <mat-error>
+                 Please provide a valid first name
+               </mat-error>
+             </mat-form-field>
+
+             <mat-form-field class="full-width-input">
+               <input matInput placeholder="Immatriculation" formControlName="immatriculation" required>
+               <mat-error>
+                 Please provide a valid last name
+               </mat-error>
+             </mat-form-field>
+
+
+             <mat-form-field class="full-width-input">
+               <input matInput placeholder="Couleur" formControlName="color" required>
+               <mat-error>
+                 Please provide a valid last name
+               </mat-error>
+             </mat-form-field>
+
+             <mat-form-field class="full-width-input">
+               <input matInput placeholder="Compagnie d'assurance" formControlName="insuranceCompany" required>
+               <mat-error>
+                 Please provide a valid last name
+               </mat-error>
+             </mat-form-field>
+
+
+             <mat-form-field class="full-width-input">
+               <input matInput placeholder="N° Police" formControlName="policeNumber" required>
+               <mat-error>
+                 Please provide a valid last name
+               </mat-error>
+             </mat-form-field>
+           </form>
+         </mat-card>
+       </mat-expansion-panel>
+     </mat-accordion>
+     <mat-accordion>
+       <mat-expansion-panel>
+         <mat-expansion-panel-header>
+           <mat-panel-title>
+             <h1>Documents</h1>
+           </mat-panel-title>
+         </mat-expansion-panel-header>
+
+         <mat-card class="step-card">
+
+         </mat-card>
+       </mat-expansion-panel>
+
+     </mat-accordion>
+
+
+   </mat-card-content>-->
+</mat-card>

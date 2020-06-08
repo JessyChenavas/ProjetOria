@@ -1,0 +1,64 @@
+@import '../../breakpoints';
+@import '../../theme';
+
+.right-menu {
+  width: 100%;
+  justify-content: flex-end;
+  display: flex;
+}
+
+.secondary-toolbar {
+  height: 35px;
+  background-color: #0C2340;
+}
+
+.mat-sidenav {
+  width: 360px;
+}
+.mat-sidenav-container {
+  background-color: white !important;
+  height: calc(100vh - 84px);
+
+  .mat-sidenav-content {
+    display: flex;
+    flex-direction: column;
+  }
+}
+.sidenav-toolbar {
+  height: 84px;
+  background-color: #00B8DE;
+  display: flex;
+  flex-direction: row;
+  color: black;
+
+  @media (max-width: 600px) {
+    height: 56px;
+  }
+}
+.mat-nav-list {
+  padding-top: 0;
+}
+@include breakpoint-max(600px) {
+  .fixed-topnav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    width: 100% !important;
+  }
+
+  .mat-drawer-container,
+  .mat-drawer {
+    padding-top: 56px;
+  }
+}
+.menu-list-item.mat-list-item {
+  .mat-list-item-content {
+    flex: 1 1 100%;
+  }
+}
+.version-info {
+  font-size: 8pt;
+  padding: 8px;
+  align-self: flex-end;
+}

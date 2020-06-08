@@ -1,0 +1,148 @@
+@import '../../breakpoints';
+
+.top-picture {
+  height: 230px;
+  background: url('/assets/background.jpg') no-repeat center center fixed;;
+}
+
+/* FORM CSS */
+.form-content {
+  display: flex;
+  flex-wrap: wrap;
+  padding-bottom: 30px;
+
+  .full-width-input {
+    flex: 0 46%;
+    padding-right: 2%;
+    padding-left: 2%;
+  }
+
+  .upload-file {
+    flex: 0 96%;
+    padding-right: 2%;
+    padding-left: 2%;
+
+    mat-form-field {
+      padding-left: 0;
+    }
+
+    .file-wrapper {
+      mat-form-field {
+        padding-bottom: 0;
+
+        ::ng-deep .mat-form-field-wrapper {
+          padding: 0;
+        }
+      }
+    }
+  }
+}
+
+.stepper-buttons {
+  display: flex;
+  justify-content: space-between;
+  padding-right: 2%;
+  padding-left: 2%;
+}
+
+
+mat-card.main-content {
+  width: 85%;
+  position: relative;
+  top: -180px;
+  margin: auto;
+}
+
+mat-card-title {
+  padding: 20px;
+  text-align: center;
+}
+
+mat-form-field {
+  display: block;
+  padding-bottom: 4px;
+}
+
+mat-card.step-card {
+  max-width: 800px;
+  margin: 2em auto;
+  text-align: center;
+}
+
+mat-expansion-panel {
+  width: 80%;
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: 30px;
+}
+
+.mat-accordion > mat-expansion-panel.mat-expansion-panel-spacing:first-child, .mat-accordion > *:first-child:not(.mat-expansion-panel) .mat-expansion-panel-spacing {
+  margin-top: 30px;
+}
+
+mat-panel-title {
+  font-weight: 500;
+  font-size: 1.5rem;
+  color: #e41d4b;
+  justify-content: center;
+  width: 100%;
+
+  h1 {
+    margin: 0px;
+  }
+}
+.upload-file {
+  display: flex;
+}
+.file-wrapper {
+  flex-grow: 1;
+  padding-right: 20px;
+}
+.file-field {
+  position: relative;
+  width: 20%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  button {
+    width: 100%;
+    height: 50px;
+  }
+}
+
+@include breakpoint-max(600px) {
+  .upload-file {
+    flex-direction: column;
+  }
+
+  .file-field {
+    margin: auto;
+    width: 50%;
+  }
+}
+
+::ng-deep .file-input {
+  width: 100%;
+  opacity: 0;
+}
+.file-upload {
+  padding: 0 10px 0 10px;
+}
+.file-upload input.upload {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 0;
+  padding: 0;
+  z-index: 10;
+  font-size: 20px;
+  cursor: pointer;
+  height: 36px;
+  filter: alpha(opacity=0); }
+
+#fileuploadurl{
+  border: none;
+  font-size: 12px;
+  padding-left: 0;
+  width: 250px; }

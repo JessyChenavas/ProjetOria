@@ -1,0 +1,29 @@
+<mat-toolbar color="primary" class="mat-elevation-z1 secondary-toolbar">
+  <div class="left-menu">
+    <a>Me connecter</a>
+    <a>M'inscrire</a>
+  </div>
+</mat-toolbar>
+
+<mat-toolbar color="primary" class="mat-elevation-z1 sidenav-toolbar">
+  <button mat-icon-button id="menu" (click)="navService.toggleNav()">
+    <mat-icon>menu</mat-icon>
+  </button>
+  <span>Maison des Elèves</span>
+
+  <div class="right-menu">
+    <a>Mes demandes</a>
+  </div>
+</mat-toolbar>
+
+<mat-sidenav-container>
+  <mat-sidenav #appDrawer mode="over" opened="false">
+    <mat-nav-list>
+      <app-menu-item-list *ngFor="let item of navItems" [item]="item"></app-menu-item-list>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+
+</mat-sidenav-container>

@@ -1,0 +1,35 @@
+@import '../../../theme';
+
+:host {
+  display: flex;
+  flex-direction: column;
+  outline: none;
+  width: 100%;
+
+  ::ng-deep .mat-list-item .mat-list-item-content {
+    width: 100%;
+  }
+
+  .mat-list-item.active {
+    background-color: mat-color($app-primary, 50);
+  }
+  &:hover,
+  &:focus {
+    >.mat-list-item:not(.expanded) {
+      background-color: mat-color($app-primary, 100) !important;
+    }
+  }
+}
+
+.mat-list-item {
+  padding: 0px;
+  display: flex;
+  width: auto;
+  height: 64px;
+
+  .routeIcon {
+    margin-right: 40px;
+  }
+}
+
+

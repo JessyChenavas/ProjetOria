@@ -1,0 +1,19 @@
+<div class="content">
+
+  <div class="top-picture"></div>
+
+  <div class="main-content">
+    <mat-card *ngIf="dossierEnCours">
+      <h1>Dossier en cours soumis le:</h1>
+
+      <h2>Récap</h2>
+
+
+    </mat-card>
+
+    <mat-card *ngIf="!dossierEnCours">
+      <a routerLink="/logement/demande">Faire ma demande</a>
+    </mat-card>
+  </div>
+</div>
+

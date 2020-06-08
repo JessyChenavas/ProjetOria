@@ -1,0 +1,16 @@
+.top-picture {
+  height: 230px;
+  background: url('/assets/background.jpg') no-repeat center center fixed;;
+}
+
+mat-card {
+  width: 85%;
+  position: relative;
+  top: -180px;
+  margin: auto;
+}
+
+.main-content {
+  text-align: center;
+}
+
