@@ -17,7 +17,7 @@ export class AuthService extends RestService {
   public login(credentials): Observable<any> {
     console.log(credentials);
     return new Observable<any>(observer => {
-      this.post<any>('auth/signin', credentials).subscribe(result => {
+      this.post<any>('auth/login', credentials).subscribe(result => {
         observer.next(result);
         observer.complete();
       }, error => {
@@ -29,7 +29,7 @@ export class AuthService extends RestService {
 
   public register(user): Observable<any> {
     return new Observable<any>(observer => {
-      this.post<any>('auth/signup', user).subscribe(result => {
+      this.post<any>('auth/register', user).subscribe(result => {
         observer.next(result);
         observer.complete();
       }, error => {
@@ -41,7 +41,7 @@ export class AuthService extends RestService {
 
   public isTokenValid(): Observable<any> {
     return new Observable<any>(observer => {
-      this.get<any>('test/all', {}).subscribe(result => {
+      this.get<any>('auth/me', {}).subscribe(result => {
         observer.next(result);
         observer.complete();
       }, error => {

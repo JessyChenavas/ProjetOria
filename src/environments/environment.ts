@@ -3,7 +3,7 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  wsUrl: '/api/',
+  wsUrl: "http://logement-api.dev.num-eros.fr/index.php/",
   production: false
 };
 

@@ -1,7 +1,5 @@
 <div class="content">
 
-  <div class="top-picture"></div>
-
   <div class="main-content">
     <mat-card *ngIf="dossierEnCours">
       <h1>Dossier en cours soumis le:</h1>
@@ -12,8 +10,11 @@
     </mat-card>
 
     <mat-card *ngIf="!dossierEnCours">
-      <a routerLink="/logement/demande">Faire ma demande</a>
+     <!-- <a routerLink="/logement/demande">Faire ma demande</a>-->
+
+      <button mat-button (click)="initRequest()">Créer une demande</button>
     </mat-card>
   </div>
 </div>
+
 

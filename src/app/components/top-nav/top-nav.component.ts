@@ -3,6 +3,7 @@ import {AfterViewInit, Component, ElementRef, OnInit, ViewChild} from '@angular/
 import {VERSION} from '@angular/material/core';
 import {NavItem} from '../../model/nav-item';
 import {NavService} from '../../services/nav.service';
+import {Router} from "@angular/router";
 
 
 @Component({
@@ -58,7 +59,7 @@ export class TopNavComponent implements OnInit, AfterViewInit {
     }
   ];
 
-  constructor(public navService: NavService) {
+  constructor(public navService: NavService, public router: Router) {
   }
 
   ngOnInit(): void {

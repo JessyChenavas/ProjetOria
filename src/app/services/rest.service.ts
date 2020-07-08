@@ -28,7 +28,7 @@ export class RestService {
     });
 
     if (this.tokenStorageService.getToken()) {
-      headers = headers.set('Authorization', 'Bearer ' + this.tokenStorageService.getToken());
+      headers = headers.set('X-AUTH-TOKEN', this.tokenStorageService.getToken());
     }
 
     return headers;

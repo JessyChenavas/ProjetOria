@@ -17,17 +17,21 @@ export class AppComponent implements OnInit {
   showAdminBoard = false;
   showModeratorBoard = false;
   username: string;
+  showTopNav = true;
 
   constructor(private tokenStorageService: TokenStorageService, private appState: AppStateService, private router: Router, private authService: AuthService) {
   }
 
   ngOnInit() {
+    // listenging to routing navigation event
+
     /*this.authService.isTokenValid().subscribe(result => {
-      console.log("RES");
-      this.appState.isLogged = !!this.tokenStorageService.getToken();
-    }, error => {
-      console.log("TOKEN INVALID");
-      this.router.navigate(['login']);
-    });*/
+     console.log("RES");
+     this.appState.isLogged = !!this.tokenStorageService.getToken();
+   }, error => {
+     console.log("TOKEN INVALID");
+     this.router.navigate(['login']);
+   });*/
   }
+
 }

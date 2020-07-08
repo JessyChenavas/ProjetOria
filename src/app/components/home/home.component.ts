@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {RequestService} from "../../services/request.service";
 
 @Component({
   selector: 'app-home',
@@ -9,9 +10,17 @@ export class HomeComponent implements OnInit {
 
   dossierEnCours = false;
 
-  constructor() { }
+  constructor(private requestService: RequestService) { }
 
   ngOnInit(): void {
+  }
+
+  initRequest() {
+    this.requestService.createRequest().subscribe(res => {
+
+    }, err => {
+
+    });
   }
 
 }

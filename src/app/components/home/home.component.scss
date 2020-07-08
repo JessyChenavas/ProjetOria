@@ -1,12 +1,12 @@
-.top-picture {
-  height: 230px;
-  background: url('/assets/background.jpg') no-repeat center center fixed;;
+.content {
+  background: url('/assets/meuh.jpg') no-repeat center center fixed;
+  padding-top: 30px;
 }
 
 mat-card {
   width: 85%;
-  position: relative;
-  top: -180px;
+  // position: relative;
+  // top: -180px;
   margin: auto;
 }
 

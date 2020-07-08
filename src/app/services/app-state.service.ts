@@ -1,4 +1,6 @@
 import {Injectable} from '@angular/core';
+import {TokenStorageService} from "./token-storage.service";
+import {AuthService} from "./auth.service";
 
 @Injectable({
   providedIn: 'root'
@@ -9,10 +11,10 @@ export class AppStateService {
 
   public user = undefined;
 
-  constructor() {
+  constructor(private tokenStorageService: TokenStorageService, private authService: AuthService) {
   }
 
   isLoggedIn() {
-    return this.isLogged;
+    return this.tokenStorageService.getToken() != null;
   }
 }

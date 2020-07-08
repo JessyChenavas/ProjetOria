@@ -28,7 +28,7 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() {
     this.form = this.fb.group({
-      username: ['', Validators.email],
+      email: ['', Validators.email],
       password: ['', Validators.required]
     });
   }
@@ -40,12 +40,15 @@ export class LoginComponent implements OnInit {
       try {
         this.authService.login(this.form.value).subscribe(
           data => {
-            this.tokenStorage.saveToken(data.accessToken);
-            this.tokenStorage.saveUser(data);
+            this.tokenStorage.saveToken(data.api_token);
+
+
+            // this.tokenStorage.saveUser(data);
 
             const jsonConvert: JsonConvert = new JsonConvert();
-            this.appState.user = jsonConvert.deserializeObject(data, User);
+            // this.appState.user = jsonConvert.deserializeObject(data, User);
             this.appState.isLogged = true;
+            console.log(this.appState.isLogged);
           },
           err => {
           }

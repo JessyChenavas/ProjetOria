@@ -8,11 +8,11 @@ import {DemandeLogementComponent} from './components/demande-logement/demande-lo
 
 
 const routes: Routes = [
-  {path: 'home', component: HomeComponent/*, canActivate: [LoginActivate]*/},
+  {path: 'home', component: HomeComponent, canActivate: [LoginActivate]},
   {path: 'login', component: LoginComponent},
   {path: 'register', component: RegisterComponent},
   {path: 'logement/demande', component: DemandeLogementComponent},
-  {path: '', component: HomeComponent/*, canActivate: [LoginActivate]*/},
+  {path: '', component: HomeComponent, canActivate: [LoginActivate]},
 ];
 
 @NgModule({
